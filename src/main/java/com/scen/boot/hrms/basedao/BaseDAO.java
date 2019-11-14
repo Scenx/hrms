@@ -9,6 +9,6 @@ import tk.mybatis.mapper.common.MySqlMapper;
  * @author Scen
  * @date 2018/7/16 9:56
  */
-public interface BaseDao<T> extends Mapper<T>, MySqlMapper<T> {
+public interface BaseDAO<T> extends Mapper<T>, MySqlMapper<T> {
     //FIXME 特别注意，该接口不能被扫描到，否则会出错
 }

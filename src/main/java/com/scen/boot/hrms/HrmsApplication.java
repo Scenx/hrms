@@ -1,9 +1,11 @@
 package com.scen.boot.hrms;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@MapperScan("com.scen.boot.hrms.dao")
 public class HrmsApplication {
     
     public static void main(String[] args) {
