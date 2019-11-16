@@ -5,7 +5,7 @@ import com.scen.boot.hrms.dto.Hr;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
- * Created by sang on 2017/12/30.
+ * Created by
  */
 public class HrUtils {
     public static Hr getCurrentHr() {
