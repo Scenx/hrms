@@ -2,6 +2,7 @@ package com.scen.boot.hrms.controller.emp;
 
 import com.scen.boot.hrms.dto.Employee;
 import com.scen.boot.hrms.dto.ScenResult;
+import com.scen.boot.hrms.model.Department;
 import com.scen.boot.hrms.model.Position;
 import com.scen.boot.hrms.service.DepartmentService;
 import com.scen.boot.hrms.service.EmpService;
@@ -119,12 +120,11 @@ public class EmpBasicController {
         if (empService.addEmp(employee) == 1) {
             Employee employeeSend = new Employee();
             BeanUtils.copyProperties(employee,employeeSend);
-            List<Position> allPos = positionService.getAllPos();
-            for (Position allPo : allPos) {
-                if (allPo.getId().equals(employee.getPosId())) {
-                    employeeSend.setPosName(allPo.getName());
-                }
-            }
+            
+            Position position= positionService.getPosById(employee.getPosId());
+            Department department = departmentService.getDepById(employee.getDepartmentId());
+            employeeSend.setPosName(position.getName());
+            employeeSend.setDepartmentName(department.getName());
             executorService.execute(new EmailRunnable(employeeSend,
                     javaMailSender, templateEngine,emailAddress));
             return ScenResult.ok(null,"添加成功!");

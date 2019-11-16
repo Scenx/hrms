@@ -17,4 +17,6 @@ public interface DepartmentService {
     List<com.scen.boot.hrms.dto.Department> getDepByPid(String pid);
     
     List<com.scen.boot.hrms.dto.Department> getAllDeps();
+    
+    Department getDepById(String departmentId);
 }

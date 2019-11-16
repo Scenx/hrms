@@ -43,4 +43,9 @@ public class PositionServiceImpl implements PositionService {
     public int updatePosById(Position position) {
         return 0;
     }
+    
+    @Override
+    public Position getPosById(String posId) {
+        return positionDAO.selectByPrimaryKey(posId);
+    }
 }

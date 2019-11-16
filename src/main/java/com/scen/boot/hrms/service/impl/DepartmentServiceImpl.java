@@ -44,4 +44,9 @@ public class DepartmentServiceImpl implements DepartmentService {
     public List<com.scen.boot.hrms.dto.Department> getAllDeps() {
         return null;
     }
+    
+    @Override
+    public Department getDepById(String departmentId) {
+        return departmentDAO.selectByPrimaryKey(departmentId);
+    }
 }

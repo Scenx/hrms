@@ -18,4 +18,7 @@ public interface PositionService {
     boolean deletePosById(String pids);
     
     int updatePosById(Position position);
+    
+    
+    Position getPosById(String posId);
 }

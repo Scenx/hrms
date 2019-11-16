@@ -33,7 +33,7 @@ public class EmailRunnable implements Runnable {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setTo(employee.getEmail());
             helper.setFrom(emailAddress);
-            helper.setSubject("XXX集团：通知");
+            helper.setSubject("Scen大家庭：通知");
             Context ctx = new Context();
             ctx.setVariable("name", employee.getName());
             ctx.setVariable("workID", employee.getWorkID());
