@@ -25,7 +25,7 @@
         <div style="margin-left: 5px;margin-right: 20px;display: inline">
           <el-upload
             :show-file-list="false"
-            accept="application/vnd.ms-excel"
+            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             action="/employee/basic/importEmp"
             :on-success="fileUploadSuccess"
             :on-error="fileUploadError" :disabled="fileUploadBtnText=='正在导入'"
@@ -882,7 +882,7 @@
         this.emp.endContract = this.formatDate(row.endContract);
         this.emp.beginDate = this.formatDate(row.beginDate);
         this.emp.nationId = row.nation.id;
-        this.emp.politicId = row.politicsStatus.id;
+        this.emp.politicId = row.politicsstatus.id;
         this.emp.departmentId = row.department.id;
         this.emp.departmentName = row.department.name;
         this.emp.jobLevelId = row.jobLevel.id;

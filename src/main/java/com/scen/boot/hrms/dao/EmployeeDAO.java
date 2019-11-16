@@ -14,7 +14,7 @@ import java.util.List;
 public interface EmployeeDAO extends BaseDAO<Employee> {
     
     
-    @Select("SELECT workID from employee where id=(select max(id) from employee)")
+    @Select("SELECT max(workID) from employee")
     Long getMaxWorkID();
     
     List<com.scen.boot.hrms.dto.Employee> getEmployeeList(String keywords, String politicId, String nationId, String posId, String jobLevelId, String engageForm, String departmentId, Date startBeginDate, Date endBeginDate);

@@ -61,6 +61,7 @@ public class EmpServiceImpl implements EmpService {
     
     @Override
     public int addEmp(Employee employee) {
+        employee.setWorkState("在职");
         Date beginContract = employee.getBeginContract();
         Date endContract = employee.getEndContract();
         double contractTerm = (Double.parseDouble(yearFormat.format(endContract)) - Double.parseDouble(yearFormat.format(beginContract))) * 12 + Double.parseDouble(monthFormat.format(endContract)) - Double.parseDouble(monthFormat.format(beginContract));
