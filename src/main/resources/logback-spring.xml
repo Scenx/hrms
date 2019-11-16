@@ -46,7 +46,15 @@
             <appender-ref ref="console"/>
             <appender-ref ref="logFile"/>
         </logger>
+        <logger name="com.scen.boot.hrms.dao" level="debug" additivity="false">
+            <appender-ref ref="console"/>
+            <appender-ref ref="logFile" />
+        </logger>
 
+        <logger name="tk.mybatis" level="debug" additivity="false">
+            <appender-ref ref="console"/>
+            <appender-ref ref="logFile" />
+        </logger>
         <logger name="com.scen.boot.hrms.service" level="debug" additivity="false">
             <appender-ref ref="console"/>
             <appender-ref ref="logFile"/>
@@ -91,6 +99,13 @@
 
         <logger name="root" level="error" additivity="false">
             <appender-ref ref="logFile"/>
+        </logger>
+        <logger name="com.scen.boot.hrms.dao" level="error" additivity="false">
+            <appender-ref ref="logFile" />
+        </logger>
+
+        <logger name="tk.mybatis" level="error" additivity="false">
+            <appender-ref ref="logFile" />
         </logger>
 
 

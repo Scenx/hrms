@@ -1,9 +1,12 @@
 package com.scen.boot.hrms.utils;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author Scen
  * @date 2018/5/28 0:09
  */
+@Component
 public class SnowflakeIdWorker {
     // ==============================Fields===========================================
     /**
@@ -59,12 +62,12 @@ public class SnowflakeIdWorker {
     /**
      * 工作机器ID(0~31)
      */
-    private long workerId;
+    private long workerId=0L;
     
     /**
      * 数据中心ID(0~31)
      */
-    private long datacenterId;
+    private long datacenterId=0L;
     
     /**
      * 毫秒内序列(0~4095)
@@ -84,7 +87,7 @@ public class SnowflakeIdWorker {
      * @param workerId     工作ID (0~31)
      * @param datacenterId 数据中心ID (0~31)
      */
-    public SnowflakeIdWorker(long workerId, long datacenterId) {
+    /*public SnowflakeIdWorker(long workerId, long datacenterId) {
         if (workerId > maxWorkerId || workerId < 0) {
             throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));
         }
@@ -93,7 +96,7 @@ public class SnowflakeIdWorker {
         }
         this.workerId = workerId;
         this.datacenterId = datacenterId;
-    }
+    }*/
     
     // ==============================Methods==========================================
     
@@ -102,7 +105,7 @@ public class SnowflakeIdWorker {
      *
      * @return SnowflakeId
      */
-    public synchronized long nextId() {
+    public synchronized String nextId() {
         long timestamp = timeGen();
         
         //如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
@@ -129,10 +132,10 @@ public class SnowflakeIdWorker {
         lastTimestamp = timestamp;
         
         //移位并通过或运算拼到一起组成64位的ID
-        return ((timestamp - twepoch) << timestampLeftShift)
+        return (((timestamp - twepoch) << timestampLeftShift)
                 | (datacenterId << datacenterIdShift)
                 | (workerId << workerIdShift)
-                | sequence;
+                | sequence)+rdStr();
     }
     
     /**
@@ -171,4 +174,11 @@ public class SnowflakeIdWorker {
             System.out.println(id);
         }
     }*/
+    public String rdStr() {
+        StringBuilder str = new StringBuilder();
+        for (int i = 0;i<3;i++){
+            str.append((char) (Math.random() * 26 + 'A'));
+        }
+        return str.toString();
+    }
 }

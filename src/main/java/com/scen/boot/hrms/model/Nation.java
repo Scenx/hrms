@@ -10,15 +10,15 @@ public class Nation implements Serializable {
     
     private static final long serialVersionUID = -2824511199368161050L;
     @Id
-    private Long id;
+    private String id;
     private String name;
     
     
-    public Long getId() {
+    public String getId() {
         return id;
     }
     
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     

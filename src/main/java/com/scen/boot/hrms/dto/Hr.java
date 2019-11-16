@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class Hr implements UserDetails {
     private static final long serialVersionUID = -3831003778938651867L;
-    private Long id;
+    private String id;
     private String name;
     private String phone;
     private String telephone;
@@ -80,11 +80,11 @@ public class Hr implements UserDetails {
         this.roles = roles;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

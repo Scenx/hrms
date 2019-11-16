@@ -32,6 +32,9 @@ public class ScenResult implements Serializable {
     public static ScenResult ok(Object data) {
         return new ScenResult(data);
     }
+    public static ScenResult ok(Object data,String msg) {
+        return new ScenResult(data,msg);
+    }
     
     public static ScenResult ok() {
         return new ScenResult(null);
@@ -54,6 +57,12 @@ public class ScenResult implements Serializable {
     public ScenResult(Object data) {
         this.status = 200;
         this.msg = "OK";
+        this.data = data;
+    }
+    
+    public ScenResult(Object data,String msg) {
+        this.status = 200;
+        this.msg = msg;
         this.data = data;
     }
     

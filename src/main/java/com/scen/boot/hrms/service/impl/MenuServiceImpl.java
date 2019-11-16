@@ -3,6 +3,7 @@ package com.scen.boot.hrms.service.impl;
 import com.scen.boot.hrms.dao.MenuDAO;
 import com.scen.boot.hrms.dto.Menu;
 import com.scen.boot.hrms.service.MenuService;
+import com.scen.boot.hrms.utils.HrUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,5 +27,10 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public List<Menu> getAllMenu(){
         return menuDAO.getAllMenu();
+    }
+    
+    @Override
+    public List<Menu> getMenusByHrId() {
+        return menuDAO.getMenusByHrId(HrUtils.getCurrentHr().getId());
     }
 }

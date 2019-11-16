@@ -11,8 +11,8 @@ public class Employeeec implements Serializable {
     
     private static final long serialVersionUID = 6054668257798063528L;
     @Id
-    private Long id;
-    private Long eid;
+    private String id;
+    private String eid;
     private Date ecDate;
     private String ecReason;
     private Integer ecPoint;
@@ -20,20 +20,20 @@ public class Employeeec implements Serializable {
     private String remark;
     
     
-    public Long getId() {
+    public String getId() {
         return id;
     }
     
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     
     
-    public Long getEid() {
+    public String getEid() {
         return eid;
     }
     
-    public void setEid(Long eid) {
+    public void setEid(String eid) {
         this.eid = eid;
     }
     

@@ -10,34 +10,34 @@ public class HrRole implements Serializable {
     
     private static final long serialVersionUID = -3526697515882176655L;
     @Id
-    private Long id;
-    private Long rid;
-    private Long hrid;
+    private String id;
+    private String rid;
+    private String hrid;
     
     
-    public Long getId() {
+    public String getId() {
         return id;
     }
     
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     
     
-    public Long getRid() {
+    public String getRid() {
         return rid;
     }
     
-    public void setRid(Long rid) {
+    public void setRid(String rid) {
         this.rid = rid;
     }
     
     
-    public Long getHrid() {
+    public String getHrid() {
         return hrid;
     }
     
-    public void setHrid(Long hrid) {
+    public void setHrid(String hrid) {
         this.hrid = hrid;
     }
     

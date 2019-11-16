@@ -105,7 +105,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                                                         Authentication auth) throws IOException {
                         resp.setContentType("application/json;charset=utf-8");
                         PrintWriter out = resp.getWriter();
-                        out.write(JsonUtils.objectToJson4e(ScenResult.ok(HrUtils.getCurrentHr())));
+                        out.write(JsonUtils.objectToJson4e(ScenResult.ok(HrUtils.getCurrentHr(),"登录成功")));
                         out.flush();
                         out.close();
                     }
@@ -119,7 +119,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     public void onLogoutSuccess(HttpServletRequest req, HttpServletResponse resp, Authentication authentication) throws IOException, ServletException {
                         resp.setContentType("application/json;charset=utf-8");
                         PrintWriter out = resp.getWriter();
-                        out.write(JsonUtils.objectToJson4e(ScenResult.ok()));
+                        out.write(JsonUtils.objectToJson4e(ScenResult.ok(null,"注销成功")));
                         out.flush();
                         out.close();
                     }

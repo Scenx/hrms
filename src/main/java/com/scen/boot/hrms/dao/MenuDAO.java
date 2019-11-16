@@ -15,4 +15,7 @@ public interface MenuDAO extends BaseDAO<Menu> {
     
     
     List<com.scen.boot.hrms.dto.Menu> getAllMenu();
+    
+    
+    List<com.scen.boot.hrms.dto.Menu> getMenusByHrId(String hrId);
 }

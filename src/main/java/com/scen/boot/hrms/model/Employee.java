@@ -6,26 +6,26 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
-@Table(name = "employee")
+@Table(name = "")
 public class Employee implements Serializable {
-    
-    private static final long serialVersionUID = 8658714873944544720L;
-    @Id
-    private Long id;
+  
+  private static final long serialVersionUID = -2776786034736938854L;
+  @Id
+    private String id;
     private String name;
     private String gender;
     private Date birthday;
     private String idCard;
     private String wedlock;
-    private Long nationId;
+    private String nationId;
     private String nativePlace;
-    private Long politicId;
+    private String politicId;
     private String email;
     private String phone;
     private String address;
-    private Long departmentId;
-    private Long jobLevelId;
-    private Long posId;
+    private String departmentId;
+    private String jobLevelId;
+    private String posId;
     private String engageForm;
     private String tiptopDegree;
     private String specialty;
@@ -41,11 +41,11 @@ public class Employee implements Serializable {
     private Integer workAge;
     
     
-    public Long getId() {
+    public String getId() {
         return id;
     }
     
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     
@@ -95,11 +95,11 @@ public class Employee implements Serializable {
     }
     
     
-    public Long getNationId() {
+    public String getNationId() {
         return nationId;
     }
     
-    public void setNationId(Long nationId) {
+    public void setNationId(String nationId) {
         this.nationId = nationId;
     }
     
@@ -113,11 +113,11 @@ public class Employee implements Serializable {
     }
     
     
-    public Long getPoliticId() {
+    public String getPoliticId() {
         return politicId;
     }
     
-    public void setPoliticId(Long politicId) {
+    public void setPoliticId(String politicId) {
         this.politicId = politicId;
     }
     
@@ -149,29 +149,29 @@ public class Employee implements Serializable {
     }
     
     
-    public Long getDepartmentId() {
+    public String getDepartmentId() {
         return departmentId;
     }
     
-    public void setDepartmentId(Long departmentId) {
+    public void setDepartmentId(String departmentId) {
         this.departmentId = departmentId;
     }
     
     
-    public Long getJobLevelId() {
+    public String getJobLevelId() {
         return jobLevelId;
     }
     
-    public void setJobLevelId(Long jobLevelId) {
+    public void setJobLevelId(String jobLevelId) {
         this.jobLevelId = jobLevelId;
     }
     
     
-    public Long getPosId() {
+    public String getPosId() {
         return posId;
     }
     
-    public void setPosId(Long posId) {
+    public void setPosId(String posId) {
         this.posId = posId;
     }
     

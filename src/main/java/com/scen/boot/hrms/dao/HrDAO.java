@@ -3,10 +3,7 @@ package com.scen.boot.hrms.dao;
 import com.scen.boot.hrms.basedao.BaseDAO;
 import com.scen.boot.hrms.model.Hr;
 import com.scen.boot.hrms.model.Role;
-import org.apache.ibatis.annotations.Many;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -27,5 +24,14 @@ public interface HrDAO extends BaseDAO<Hr> {
     
     
     @Select("SELECT r.* FROM hr_role h,role r where h.rid=r.id AND h.hrid=#{id}")
-    List<Role> getRolesByHrId(Long id);
+    List<Role> getRolesByHrId(String id);
+    
+    
+    @Select("<script>" +
+            "select * from hr\n" +
+            "   <if test=\"currentId != null and currentId != ''\">\n" +
+            "            WHERE id !=#{currentId}\n" +
+            "        </if>"+
+            "</script>")
+    List<com.scen.boot.hrms.dto.Hr> getAllHr(@Param("currentId") String currentId);
 }

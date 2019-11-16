@@ -10,34 +10,34 @@ public class MenuRole implements Serializable {
     
     private static final long serialVersionUID = -2395693412262641981L;
     @Id
-    private Long id;
-    private Long mid;
-    private Long rid;
+    private String id;
+    private String mid;
+    private String rid;
     
     
-    public Long getId() {
+    public String getId() {
         return id;
     }
     
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     
     
-    public Long getMid() {
+    public String getMid() {
         return mid;
     }
     
-    public void setMid(Long mid) {
+    public void setMid(String mid) {
         this.mid = mid;
     }
     
     
-    public Long getRid() {
+    public String getRid() {
         return rid;
     }
     
-    public void setRid(Long rid) {
+    public void setRid(String rid) {
         this.rid = rid;
     }
     

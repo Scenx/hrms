@@ -10,7 +10,7 @@ public class Menu implements Serializable {
     
     private static final long serialVersionUID = -2994475231144896366L;
     @Id
-    private Long id;
+    private String id;
     private String url;
     private String path;
     private String component;
@@ -18,15 +18,15 @@ public class Menu implements Serializable {
     private String iconCls;
     private Integer keepAlive;
     private Integer requireAuth;
-    private Long parentId;
+    private String parentId;
     private Integer enabled;
     
     
-    public Long getId() {
+    public String getId() {
         return id;
     }
     
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     
@@ -94,11 +94,11 @@ public class Menu implements Serializable {
     }
     
     
-    public Long getParentId() {
+    public String getParentId() {
         return parentId;
     }
     
-    public void setParentId(Long parentId) {
+    public void setParentId(String parentId) {
         this.parentId = parentId;
     }
     

@@ -10,7 +10,7 @@ public class Hr implements Serializable {
     
     private static final long serialVersionUID = 8629295658063116387L;
     @Id
-    private Long id;
+    private String id;
     private String name;
     private String phone;
     private String telephone;
@@ -22,11 +22,11 @@ public class Hr implements Serializable {
     private String remark;
     
     
-    public Long getId() {
+    public String getId() {
         return id;
     }
     
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     

@@ -12,47 +12,47 @@ public class Employeeremove implements Serializable {
     
     private static final long serialVersionUID = -8458728989507417274L;
     @Id
-    private Long id;
-    private Long eid;
-    private Long afterDepId;
-    private Long afterJobId;
+    private String id;
+    private String eid;
+    private String afterDepId;
+    private String afterJobId;
     private Date removeDate;
     private String reason;
     private String remark;
     
     
-    public Long getId() {
+    public String getId() {
         return id;
     }
     
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     
     
-    public Long getEid() {
+    public String getEid() {
         return eid;
     }
     
-    public void setEid(Long eid) {
+    public void setEid(String eid) {
         this.eid = eid;
     }
     
     
-    public Long getAfterDepId() {
+    public String getAfterDepId() {
         return afterDepId;
     }
     
-    public void setAfterDepId(Long afterDepId) {
+    public void setAfterDepId(String afterDepId) {
         this.afterDepId = afterDepId;
     }
     
     
-    public Long getAfterJobId() {
+    public String getAfterJobId() {
         return afterJobId;
     }
     
-    public void setAfterJobId(Long afterJobId) {
+    public void setAfterJobId(String afterJobId) {
         this.afterJobId = afterJobId;
     }
     

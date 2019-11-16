@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scen.boot.hrms.dao.SysmsgDAO">
+
+    <select id="getSysMsg" resultMap="BaseResultMap">
+        select sm.*,mc.`message`,mc.`title`,mc.`createDate`,mc.`id` as mcid from sysmsg sm,msgcontent mc where sm.`mid`=mc.`id` and sm.`hrid`=#{hrid} order by mc.`createDate` desc
+    </select>
+
+    <resultMap id="BaseResultMap" type="com.scen.boot.hrms.dto.SysMsg">
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="mid" property="mid" jdbcType="VARCHAR" />
+        <result column="type" property="type" jdbcType="INTEGER" />
+        <result column="hrid" property="hrid" jdbcType="VARCHAR" />
+        <result column="state" property="state" jdbcType="INTEGER" />
+        <association property="msgcontent" javaType="com.scen.boot.hrms.model.Msgcontent">
+            <id column="mcid" property="id" jdbcType="VARCHAR" />
+            <result column="title" property="title" jdbcType="VARCHAR" />
+            <result column="message" property="message" jdbcType="VARCHAR" />
+            <result column="createDate" property="createDate" jdbcType="TIMESTAMP" />
+        </association>
+    </resultMap>
+    <update id="markRead">
+        UPDATE sysmsg set state=1 WHERE hrid=#{hrid}
+        <if test="flag!='-1'">
+            AND mid=#{flag}
+        </if>
+    </update>
+</mapper>

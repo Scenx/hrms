@@ -10,16 +10,16 @@ public class Role implements Serializable {
     
     private static final long serialVersionUID = -297802995776901866L;
     @Id
-    private Long id;
+    private String id;
     private String name;
     private String nameZh;
     
     
-    public Long getId() {
+    public String getId() {
         return id;
     }
     
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
     

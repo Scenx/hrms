@@ -13,13 +13,13 @@ import java.util.List;
  */
 public class Menu implements Serializable {
     private static final long serialVersionUID = -348804404493657874L;
-    private Long id;
+    private String id;
     private String url;
     private String path;
     private Object component;
     private String name;
     private String iconCls;
-    private Long parentId;
+    private String parentId;
     private List<Role> roles;
     private List<Menu> children;
     private MenuMeta meta;
@@ -40,11 +40,11 @@ public class Menu implements Serializable {
         this.children = children;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -91,11 +91,11 @@ public class Menu implements Serializable {
     }
 
     @JsonIgnore
-    public Long getParentId() {
+    public String getParentId() {
         return parentId;
     }
 
-    public void setParentId(Long parentId) {
+    public void setParentId(String parentId) {
         this.parentId = parentId;
     }
 

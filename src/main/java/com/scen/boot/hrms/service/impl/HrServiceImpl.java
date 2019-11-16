@@ -3,10 +3,13 @@ package com.scen.boot.hrms.service.impl;
 import com.scen.boot.hrms.dao.HrDAO;
 import com.scen.boot.hrms.dto.Hr;
 import com.scen.boot.hrms.service.HrService;
+import com.scen.boot.hrms.utils.HrUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * @author Scen
@@ -33,5 +36,8 @@ public class HrServiceImpl implements HrService {
     }
     
     
-    
+    @Override
+    public List<Hr> getAllHrExceptAdmin() {
+        return hrDAO.getAllHr(HrUtils.getCurrentHr().getId());
+    }
 }

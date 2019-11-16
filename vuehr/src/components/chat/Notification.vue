@@ -10,7 +10,7 @@
       </el-header>
       <el-main style="padding: 0px;">
         <el-collapse accordion style="width: 90%" @change="handleChange" v-model="mid">
-          <el-collapse-item v-for="(msg,index) in sysmsgs" :key="index" :name="msg.msgContent.id">
+          <el-collapse-item v-for="(msg,index) in sysmsgs" :key="index" :name="msg.msgcontent.id">
             <template slot="title">
               <div style="display: flex;justify-content: flex-start;align-items: center;">
                 <div style="display: flex;justify-content: center;align-items: center;width: 25px;height: 25px">
@@ -18,13 +18,13 @@
                     style="width: 8px;height: 8px;background-color: #ea0206;border-radius: 8px;"
                     v-if="msg.state==0"></div>
                 </div>
-                <span style="width: 600px;text-align: left">{{msg.msgContent.title}}</span>
-                <el-tag>{{msg.msgContent.createDate|formatDate}}</el-tag>
+                <span style="width: 600px;text-align: left">{{msg.msgcontent.title}}</span>
+                <el-tag>{{msg.msgcontent.createDate|formatDate}}</el-tag>
               </div>
             </template>
             <div
               style="display: flex;justify-content: flex-start;align-items: center;border-style: solid;border-width: 1px;border-color: #409eff;border-radius: 5px;padding: 4px 0px 4px 8px;box-sizing: border-box;height: 100%">
-              {{msg.msgContent.message}}
+              {{msg.msgcontent.message}}
             </div>
           </el-collapse-item>
         </el-collapse>
@@ -81,7 +81,7 @@
         dialogLoading: false,
         title: '',
         message: '',
-        mid: -1,
+        mid: '-1',
         sysmsgs: []
       }
     },
@@ -106,7 +106,7 @@
           return;
         }
         var _this = this;
-        this.putRequest("/chat/markread", {flag: this.mid}).then(resp=> {
+        this.putRequest("/chat/markread", {flag:this.mid}).then(resp=> {
           if (resp && resp.status == 200) {
             _this.initSysMsgs();
           }
