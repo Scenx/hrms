@@ -5,6 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 @Table(name = "joblevel")
 public class Joblevel implements Serializable {
@@ -17,6 +18,35 @@ public class Joblevel implements Serializable {
     private Date createDate;
     private Integer enabled;
     
+    
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+    
+        Joblevel joblevel = (Joblevel) o;
+        
+        return Objects.equals(name, joblevel.name);
+    }
+    
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
+    
+    public Joblevel() {
+    
+    }
+    
+    public Joblevel(String name) {
+        
+        this.name = name;
+    }
     
     public String getId() {
         return id;

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scen.boot.hrms.dao.EmployeeDAO">
+    <resultMap id="BaseResultMap" type="com.scen.boot.hrms.dto.Employee">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="gender" property="gender"/>
+        <result column="birthday" property="birthday"/>
+        <result column="idCard" property="idCard"/>
+        <result column="wedlock" property="wedlock"/>
+        <result column="nationId" property="nationId"/>
+        <result column="nativePlace" property="nativePlace"/>
+        <result column="politicId" property="politicId"/>
+        <result column="email" property="email"/>
+        <result column="phone" property="phone"/>
+        <result column="address" property="address"/>
+        <result column="departmentId" property="departmentId"/>
+        <result column="jobLevelId" property="jobLevelId"/>
+        <result column="posId" property="posId"/>
+        <result column="engageForm" property="engageForm"/>
+        <result column="tiptopDegree" property="tiptopDegree"/>
+        <result column="specialty" property="specialty"/>
+        <result column="school" property="school"/>
+        <result column="beginDate" property="beginDate"/>
+        <result column="workState" property="workState"/>
+        <result column="workID" property="workID"/>
+        <result column="contractTerm" property="contractTerm"/>
+        <result column="conversionTime" property="conversionTime"/>
+        <result column="notWorkDate" property="notWorkDate"/>
+        <result column="beginContract" property="beginContract"/>
+        <result column="endContract" property="endContract"/>
+        <result column="workAge" property="workAge"/>
+        <association property="department" javaType="com.scen.boot.hrms.dto.Department">
+            <id property="id" column="did"/>
+            <result property="name" column="dname"/>
+        </association>
+        <association property="jobLevel" javaType="com.scen.boot.hrms.model.Joblevel">
+            <id property="id" column="jlid"/>
+            <result property="name" column="jlname"/>
+            <result property="titleLevel" column="jlTitleLevel"/>
+        </association>
+        <association property="nation" javaType="com.scen.boot.hrms.model.Nation">
+            <id property="id" column="nid"/>
+            <result property="name" column="nname"/>
+        </association>
+        <association property="position" javaType="com.scen.boot.hrms.model.Position">
+            <id property="id" column="pid"/>
+            <result property="name" column="pname"/>
+        </association>
+        <association property="politicsstatus" javaType="com.scen.boot.hrms.model.Politicsstatus">
+            <id property="id" column="psid"/>
+            <result property="name" column="psname"/>
+        </association>
+        <association property="salary" javaType="com.scen.boot.hrms.dto.Salary">
+            <id column="sid" jdbcType="INTEGER" property="id" />
+            <result column="bonus" jdbcType="INTEGER" property="bonus" />
+            <result column="lunchSalary" jdbcType="INTEGER" property="lunchSalary" />
+            <result column="trafficSalary" jdbcType="INTEGER" property="trafficSalary" />
+            <result column="basicSalary" jdbcType="INTEGER" property="basicSalary" />
+            <result column="allSalary" jdbcType="INTEGER" property="allSalary" />
+            <result column="pensionBase" jdbcType="INTEGER" property="pensionBase" />
+            <result column="pensionPer" jdbcType="REAL" property="pensionPer" />
+            <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
+            <result column="medicalBase" jdbcType="INTEGER" property="medicalBase" />
+            <result column="medicalPer" jdbcType="REAL" property="medicalPer" />
+            <result column="accumulationFundBase" jdbcType="INTEGER" property="accumulationFundBase" />
+            <result column="accumulationFundPer" jdbcType="REAL" property="accumulationFundPer" />
+            <result column="sname" jdbcType="VARCHAR" property="name" />
+        </association>
+    </resultMap>
+
+
+    <select id="getEmployeeList" resultMap="BaseResultMap">
+        select e.*,jl.`id` as jlid,jl.`name` as jlname,jl.`titleLevel` as jlTitleLevel,d.`id` as did,d.`name` as
+        dname,n.`id` as nid,n.`name` as nname,p.`id` as pid,p.`name` as pname,ps.`id` as psid,ps.`name` as psname from
+        employee e,joblevel jl,department d,nation n,position p,politicsstatus ps where e.`posId`=p.`id` and
+        e.`jobLevelId`=jl.`id` and e.`departmentId`=d.id and e.`nationId`=n.`id` and e.`politicId`=ps.`id` and e.`name`
+        like concat('%',#{keywords},'%')
+        <if test="engageForm!=null and engageForm!=''">
+            AND e.engageForm=#{engageForm}
+        </if>
+        <if test="politicId!=null and politicId!=''">
+            AND e.politicId=#{politicId}
+        </if>
+        <if test="nationId!=null and nationId!=''">
+            AND e.nationId=#{nationId}
+        </if>
+        <if test="posId!=null and posId!=''">
+            AND e.posId=#{posId}
+        </if>
+        <if test="jobLevelId!=null and jobLevelId!=''">
+            AND e.jobLevelId=#{jobLevelId}
+        </if>
+        <if test="departmentId!=null and departmentId!=''">
+            AND e.departmentId=#{departmentId}
+        </if>
+        <if test="startBeginDate!=null and endBeginDate!=null">
+            AND e.beginDate BETWEEN #{startBeginDate} AND #{endBeginDate}
+        </if>
+    </select>
+</mapper>

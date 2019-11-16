@@ -5,6 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 @Table(name = "position")
 public class Position implements Serializable {
@@ -16,6 +17,33 @@ public class Position implements Serializable {
     private Date createDate;
     private Integer enabled;
     
+    
+    public Position() {
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        
+        Position position = (Position) o;
+        
+        return Objects.equals(name, position.name);
+    }
+    
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
+    
+    public Position(String name) {
+        
+        this.name = name;
+    }
     
     public String getId() {
         return id;
