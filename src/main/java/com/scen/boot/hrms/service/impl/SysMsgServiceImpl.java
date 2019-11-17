@@ -51,13 +51,13 @@ public class SysMsgServiceImpl implements SysMsgService {
         msg.setCreateDate(new Date());
         msgcontentDAO.insert(msg);
         List<Hr> allHr = hrDAO.getAllHr(null);
+        Sysmsg sysmsg = new Sysmsg();
+        sysmsg.setMid(msg.getId());
+        sysmsg.setState(0);
+        sysmsg.setType(0);
         for (Hr hr : allHr) {
-            Sysmsg sysmsg = new Sysmsg();
             sysmsg.setId(snowflakeIdWorker.nextId());
-            sysmsg.setMid(msg.getId());
             sysmsg.setHrid(hr.getId());
-            sysmsg.setState(0);
-            sysmsg.setType(0);
             sysmsgDAO.insert(sysmsg);
         }
         return true;

@@ -21,7 +21,7 @@
         </div>
         <div>
           <div style="width: 100%;display: flex;justify-content: center">
-            <img :src="item.userface" alt="item.name" style="width: 70px;height: 70px;border-radius: 70px">
+            <img :src="item.userface" :alt="item.name" style="width: 70px;height: 70px;border-radius: 70px">
           </div>
           <div style="margin-top: 20px">
             <div><span class="user-info">用户名:{{item.name}}</span></div>
@@ -164,8 +164,12 @@
       switchChange(newValue, hrId, index){
         var _this = this;
         _this.cardLoading.splice(index, 1, true)
+          var newValueForInt = 0;
+          if (newValue) {
+              newValueForInt = 1;
+          }
         this.putRequest("/system/hr/", {
-          enabled: newValue,
+          enabled: newValueForInt,
           id: hrId
         }).then(resp=> {
           _this.cardLoading.splice(index, 1, false)
@@ -178,7 +182,7 @@
           } else {
             _this.refreshHr(hrId, index);
           }
-        })
+        });
       },
       initCards(){
         this.fullloading = true;

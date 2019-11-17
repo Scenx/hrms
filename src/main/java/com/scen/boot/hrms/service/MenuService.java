@@ -16,5 +16,5 @@ public interface MenuService {
     
     List<Menu> menuTree();
     
-    List<Integer> getMenusByRid(Long rid);
+    List<Integer> getMenusByRid(String rid);
 }

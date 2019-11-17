@@ -3,6 +3,7 @@ package com.scen.boot.hrms.service.impl;
 import com.scen.boot.hrms.dao.RoleDAO;
 import com.scen.boot.hrms.model.Role;
 import com.scen.boot.hrms.service.RoleService;
+import com.scen.boot.hrms.utils.SnowflakeIdWorker;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,8 +19,14 @@ public class RoleServiceImpl implements RoleService {
     
     private final RoleDAO roleDAO;
     
-    public RoleServiceImpl(RoleDAO roleDAO) {
+    private final SnowflakeIdWorker snowflakeIdWorker;
+    
+    public RoleServiceImpl(
+            RoleDAO roleDAO,
+            SnowflakeIdWorker snowflakeIdWorker
+    ) {
         this.roleDAO = roleDAO;
+        this.snowflakeIdWorker = snowflakeIdWorker;
     }
     
     @Override
@@ -28,11 +35,18 @@ public class RoleServiceImpl implements RoleService {
     }
     @Override
     public int addNewRole(String role, String roleZh) {
-        return 0;
+        if (!role.startsWith("ROLE_")) {
+            role = "ROLE_" + role;
+        }
+        Role roleI = new Role();
+        roleI.setId(snowflakeIdWorker.nextId());
+        roleI.setName(role);
+        roleI.setNameZh(roleZh);
+        return roleDAO.insert(roleI);
     }
     
     @Override
     public int deleteRoleById(String rid) {
-        return 0;
+        return roleDAO.deleteByPrimaryKey(rid);
     }
 }

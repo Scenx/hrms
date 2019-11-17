@@ -13,6 +13,6 @@ import java.util.List;
 public interface JoblevelDAO extends BaseDAO<Joblevel> {
     
     
-    @Select("select * from joblevel WHERE enabled=true;")
+    @Select("select * from joblevel WHERE enabled=true order by createDate desc")
     List<Joblevel> getAllJobLevels();
 }

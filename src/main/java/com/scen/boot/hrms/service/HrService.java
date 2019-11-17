@@ -13,4 +13,21 @@ public interface HrService extends UserDetailsService {
     
     
     List<Hr> getAllHrExceptAdmin();
+    
+    
+    Hr getHrById(String hrId);
+    
+    int deleteHr(String hrId);
+    
+    
+    int updateHr(com.scen.boot.hrms.model.Hr hr);
+    
+    
+    int updateHrRoles(String hrId, String[] rids);
+    
+    
+    List<Hr> getHrsByKeywords(String keywords);
+    
+    
+    int hrReg(String username, String password);
 }

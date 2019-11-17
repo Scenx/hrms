@@ -53,7 +53,7 @@ public class SystemBasicController {
     }
     
     @RequestMapping(value = "/menuTree/{rid}", method = RequestMethod.GET)
-    public Map<String, Object> menuTree(@PathVariable Long rid) {
+    public Map<String, Object> menuTree(@PathVariable String rid) {
         Map<String, Object> map = new HashMap<>(2);
         List<Menu> menus = menuService.menuTree();
         map.put("menus", menus);
@@ -136,8 +136,11 @@ public class SystemBasicController {
     
     @RequestMapping(value = "/position", method = RequestMethod.PUT)
     public ScenResult updatePosById(Position position) {
-        if (positionService.updatePosById(position) == 1) {
+        int result = positionService.updatePosById(position);
+        if (result == 1) {
             return ScenResult.ok(null, "修改成功!");
+        } else if (result == -1) {
+            return ScenResult.build(500, "职位名重复，修改失败!");
         }
         return ScenResult.build(500, "修改失败!");
     }
@@ -168,8 +171,11 @@ public class SystemBasicController {
     
     @RequestMapping(value = "/joblevel", method = RequestMethod.PUT)
     public ScenResult updateJobLevel(Joblevel joblevel) {
-        if (jobLevelService.updateJobLevel(joblevel) == 1) {
+        int result = jobLevelService.updateJobLevel(joblevel);
+        if (result == 1) {
             return ScenResult.ok(null, "修改成功!");
+        } else if (result == -1) {
+            return ScenResult.build(500, "职称名重复，修改失败!");
         }
         return ScenResult.build(500, "修改失败!");
     }

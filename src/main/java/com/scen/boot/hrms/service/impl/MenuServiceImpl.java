@@ -36,11 +36,11 @@ public class MenuServiceImpl implements MenuService {
     
     @Override
     public List<Menu> menuTree() {
-        return null;
+        return menuDAO.menuTree();
     }
     
     @Override
-    public List<Integer> getMenusByRid(Long rid) {
-        return null;
+    public List<Integer> getMenusByRid(String rid) {
+        return menuDAO.getMenusByRid(rid);
     }
 }
