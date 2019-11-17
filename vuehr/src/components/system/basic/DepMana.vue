@@ -112,7 +112,7 @@
           if (resp && resp.status == 200) {
             var respData = resp.data;
             _this.depName = '';
-            _this.setDataToTree(_this.treeData,_this.pDep,respData.msg)
+            _this.setDataToTree(_this.treeData,_this.pDep,respData.data)
           }
         })
       },

@@ -33,4 +33,14 @@ public class MenuServiceImpl implements MenuService {
     public List<Menu> getMenusByHrId() {
         return menuDAO.getMenusByHrId(HrUtils.getCurrentHr().getId());
     }
+    
+    @Override
+    public List<Menu> menuTree() {
+        return null;
+    }
+    
+    @Override
+    public List<Integer> getMenusByRid(Long rid) {
+        return null;
+    }
 }

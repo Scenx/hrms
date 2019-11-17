@@ -13,4 +13,8 @@ public interface MenuService {
     List<Menu> getAllMenu();
     
     List<Menu> getMenusByHrId();
+    
+    List<Menu> menuTree();
+    
+    List<Integer> getMenusByRid(Long rid);
 }

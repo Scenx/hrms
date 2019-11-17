@@ -18,4 +18,8 @@ public interface DepartmentDAO extends BaseDAO<Department> {
     
     @Select("select * from department WHERE enabled=true")
     List<com.scen.boot.hrms.dto.Department> getAllDeps();
+    
+    
+    
+    int addDep(Department department);
 }

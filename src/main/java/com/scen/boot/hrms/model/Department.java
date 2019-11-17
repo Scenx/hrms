@@ -12,7 +12,7 @@ public class Department implements Serializable {
     @Id
     private String id;
     private String name;
-    private Long parentId;
+    private String parentId;
     private String depPath;
     private Integer enabled;
     private Integer isParent;
@@ -36,11 +36,11 @@ public class Department implements Serializable {
     }
     
     
-    public Long getParentId() {
+    public String getParentId() {
         return parentId;
     }
     
-    public void setParentId(Long parentId) {
+    public void setParentId(String parentId) {
         this.parentId = parentId;
     }
     

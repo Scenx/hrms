@@ -3,6 +3,7 @@ package com.scen.boot.hrms.service.impl;
 import com.scen.boot.hrms.dao.DepartmentDAO;
 import com.scen.boot.hrms.model.Department;
 import com.scen.boot.hrms.service.DepartmentService;
+import com.scen.boot.hrms.utils.SnowflakeIdWorker;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,16 +19,29 @@ public class DepartmentServiceImpl implements DepartmentService {
     
     private final DepartmentDAO departmentDAO;
     
+    private final SnowflakeIdWorker snowflakeIdWorker;
+    
     public DepartmentServiceImpl(
-            DepartmentDAO departmentDAO
+            DepartmentDAO departmentDAO,
+            SnowflakeIdWorker snowflakeIdWorker
     ) {
         this.departmentDAO = departmentDAO;
+        this.snowflakeIdWorker = snowflakeIdWorker;
     }
     
     
     @Override
     public int addDep(Department department) {
-        return 0;
+        Department parentDepartment = departmentDAO.selectByPrimaryKey(department.getParentId());
+        department.setId(snowflakeIdWorker.nextId());
+        department.setEnabled(1);
+        department.setIsParent(0);
+        department.setDepPath(parentDepartment.getDepPath()+"."+department.getId());
+        
+        parentDepartment.setIsParent(1);
+        departmentDAO.updateByPrimaryKeySelective(parentDepartment);
+        
+        return departmentDAO.insert(department);
     }
     
     @Override
