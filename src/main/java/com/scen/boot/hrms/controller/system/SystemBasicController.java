@@ -91,8 +91,11 @@ public class SystemBasicController {
     
     @RequestMapping(value = "/dep/{did}", method = RequestMethod.DELETE)
     public ScenResult deleteDep(@PathVariable String did) {
-        if (departmentService.deleteDep(did) == 1) {
+        int result = departmentService.deleteDep(did);
+        if (result == 1) {
             return ScenResult.ok(null, "删除成功!");
+        } else if (result == -1) {
+            return ScenResult.build(500, "该部门下暂有员工，禁止删除!");
         }
         return ScenResult.build(500, "删除失败!");
     }
