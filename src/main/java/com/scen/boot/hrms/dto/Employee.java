@@ -2,10 +2,7 @@ package com.scen.boot.hrms.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.scen.boot.hrms.model.Joblevel;
-import com.scen.boot.hrms.model.Nation;
-import com.scen.boot.hrms.model.Politicsstatus;
-import com.scen.boot.hrms.model.Position;
+import com.scen.boot.hrms.model.*;
 
 import java.util.Date;
 

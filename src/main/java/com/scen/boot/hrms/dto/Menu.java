@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Menu implements Serializable {
     private static final long serialVersionUID = -348804404493657874L;
-    private String id;
+    private Integer id;
     private String url;
     private String path;
     private Object component;
@@ -40,11 +40,11 @@ public class Menu implements Serializable {
         this.children = children;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

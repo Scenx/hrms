@@ -353,7 +353,6 @@
               _this.tableLoading = false;
               if (resp && resp.status == 200) {
                 var data = resp.data;
-                _
                 _this.dialogVisible = false;
                 _this.index = 0;
                 _this.loadSalaryCfg();

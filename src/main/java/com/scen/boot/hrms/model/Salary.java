@@ -18,12 +18,12 @@ public class Salary implements Serializable {
     private Integer trafficSalary;
     private Integer allSalary;
     private Integer pensionBase;
-    private Double pensionPer;
+    private Float pensionPer;
     private Date createDate;
     private Integer medicalBase;
-    private Double medicalPer;
+    private Float medicalPer;
     private Integer accumulationFundBase;
-    private Double accumulationFundPer;
+    private Float accumulationFundPer;
     private String name;
     
     
@@ -90,11 +90,11 @@ public class Salary implements Serializable {
     }
     
     
-    public Double getPensionPer() {
+    public Float getPensionPer() {
         return pensionPer;
     }
     
-    public void setPensionPer(Double pensionPer) {
+    public void setPensionPer(Float pensionPer) {
         this.pensionPer = pensionPer;
     }
     
@@ -117,11 +117,11 @@ public class Salary implements Serializable {
     }
     
     
-    public Double getMedicalPer() {
+    public Float getMedicalPer() {
         return medicalPer;
     }
     
-    public void setMedicalPer(Double medicalPer) {
+    public void setMedicalPer(Float medicalPer) {
         this.medicalPer = medicalPer;
     }
     
@@ -135,11 +135,11 @@ public class Salary implements Serializable {
     }
     
     
-    public Double getAccumulationFundPer() {
+    public Float getAccumulationFundPer() {
         return accumulationFundPer;
     }
     
-    public void setAccumulationFundPer(Double accumulationFundPer) {
+    public void setAccumulationFundPer(Float accumulationFundPer) {
         this.accumulationFundPer = accumulationFundPer;
     }
     

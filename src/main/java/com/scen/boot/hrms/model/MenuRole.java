@@ -11,7 +11,7 @@ public class MenuRole implements Serializable {
     private static final long serialVersionUID = -2395693412262641981L;
     @Id
     private String id;
-    private String mid;
+    private Integer mid;
     private String rid;
     
     
@@ -24,11 +24,11 @@ public class MenuRole implements Serializable {
     }
     
     
-    public String getMid() {
+    public Integer getMid() {
         return mid;
     }
     
-    public void setMid(String mid) {
+    public void setMid(Integer mid) {
         this.mid = mid;
     }
     

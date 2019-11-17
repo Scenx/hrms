@@ -44,4 +44,7 @@ public interface EmployeeDAO extends BaseDAO<Employee> {
             "        </if>"+
             "</script>")
     Long getCountByKeywords(String keywords, String politicId, String nationId, String posId, String jobLevelId, String engageForm, String departmentId, Date startBeginDate, Date endBeginDate);
+    
+    
+    List<com.scen.boot.hrms.dto.Employee> getEmployeeListShort();
 }

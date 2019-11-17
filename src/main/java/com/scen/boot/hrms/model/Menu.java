@@ -10,7 +10,7 @@ public class Menu implements Serializable {
     
     private static final long serialVersionUID = -2994475231144896366L;
     @Id
-    private String id;
+    private Integer id;
     private String url;
     private String path;
     private String component;
@@ -22,11 +22,11 @@ public class Menu implements Serializable {
     private Integer enabled;
     
     
-    public String getId() {
+    public Integer getId() {
         return id;
     }
     
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     

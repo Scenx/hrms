@@ -42,7 +42,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     
     @Override
     public List<com.scen.boot.hrms.dto.Department> getAllDeps() {
-        return null;
+        return departmentDAO.getAllDeps();
     }
     
     @Override

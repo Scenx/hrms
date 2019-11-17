@@ -51,7 +51,7 @@
             <id property="id" column="psid"/>
             <result property="name" column="psname"/>
         </association>
-        <association property="salary" javaType="com.scen.boot.hrms.dto.Salary">
+        <association property="salary" javaType="com.scen.boot.hrms.model.Salary">
             <id column="sid" jdbcType="INTEGER" property="id" />
             <result column="bonus" jdbcType="INTEGER" property="bonus" />
             <result column="lunchSalary" jdbcType="INTEGER" property="lunchSalary" />
@@ -97,5 +97,11 @@
         <if test="startBeginDate!=null and endBeginDate!=null">
             AND e.beginDate BETWEEN #{startBeginDate} AND #{endBeginDate}
         </if>
+        order by e.workID desc
+    </select>
+
+
+    <select id="getEmployeeListShort" resultMap="BaseResultMap">
+select e.*,d.`id` as did,d.`name` as dname,s.`id` as sid,s.`accumulationFundBase`,s.`accumulationFundPer`,s.`allSalary`,s.`basicSalary`,s.`bonus`,s.`createDate`,s.`lunchSalary`,s.`medicalBase`,s.`medicalPer`,s.`name` as sname,s.`pensionBase`,s.`pensionPer`,s.`trafficSalary` from employee e left join department d on e.`departmentId`=d.id left join empsalary es on es.`eid`=e.`id` left join salary s on s.`id`=es.`sid` order by e.workID desc
     </select>
 </mapper>

@@ -131,7 +131,8 @@ public class EmpServiceImpl implements EmpService {
     
     @Override
     public List<com.scen.boot.hrms.dto.Employee> getEmployeeListShort(Integer page, Integer size) {
-        return null;
+        PageHelper.startPage(page, size, false);
+        return employeeDAO.getEmployeeListShort();
     }
     
     

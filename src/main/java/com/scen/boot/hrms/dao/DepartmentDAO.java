@@ -2,6 +2,7 @@ package com.scen.boot.hrms.dao;
 
 import com.scen.boot.hrms.basedao.BaseDAO;
 import com.scen.boot.hrms.model.Department;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -14,4 +15,7 @@ public interface DepartmentDAO extends BaseDAO<Department> {
     
     
     List<com.scen.boot.hrms.dto.Department> getDepByPid(String pid);
+    
+    @Select("select * from department WHERE enabled=true")
+    List<com.scen.boot.hrms.dto.Department> getAllDeps();
 }
